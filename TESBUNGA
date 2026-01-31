@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 SELAMAT PAGII ULANNN - Lagu Kemesraan 🌸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            overflow: hidden;
+            font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
+            position: relative;
+        }
+
+        /* Background langit pagi */
+        .sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                #87CEEB 0%, 
+                #87CEEB 30%, 
+                #FFB6C1 60%, 
+                #FFDAB9 100%);
+            z-index: -2;
+        }
+
+        /* Awan bergerak */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50px;
+            filter: blur(5px);
+            animation: moveCloud 60s linear infinite;
+        }
+
+        .cloud:nth-child(1) {
+            width: 150px;
+            height: 60px;
+            top: 100px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .cloud:nth-child(2) {
+            width: 200px;
+            height: 80px;
+            top: 150px;
+            left: -300px;
+            animation-delay: 15s;
+        }
+
+        .cloud:nth-child(3) {
+            width: 120px;
+            height: 50px;
+            top: 80px;
+            left: -150px;
+            animation-delay: 30s;
+        }
+
+        @keyframes moveCloud {
+            from { transform: translateX(0); }
+            to { transform: translateX(200vw); }
+        }
+
+        /* Matahari */
+        .sun {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+            border-radius: 50%;
+            top: 100px;
+            right: 100px;
+            box-shadow: 0 0 50px 20px rgba(255, 215, 0, 0.6);
+            animation: sunGlow 3s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes sunGlow {
+            from { box-shadow: 0 0 50px 20px rgba(255, 215, 0, 0.6); }
+            to { box-shadow: 0 0 80px 30px rgba(255, 255, 200, 0.8); }
+        }
+
+        /* Kontainer utama */
+        .container {
+            position: relative;
+            text-align: center;
+            z-index: 10;
+            max-width: 900px;
+            padding: 40px;
+        }
+
+        /* Animasi Bunga */
+        .flower {
+            position: relative;
+            margin-bottom: 60px;
+            animation: bloom 3s ease-out forwards;
+            transform-origin: bottom center;
+        }
+
+        /* Batang bunga */
+        .stem {
+            width: 12px;
+            height: 0;
+            background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 6px;
+            animation: growStem 2.5s ease-out forwards;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 5;
+        }
+
+        /* Daun kiri */
+        .leaf-left {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            border-radius: 50% 50% 0 50%;
+            bottom: 100px;
+            left: -50px;
+            transform: rotate(-30deg) scale(0);
+            animation: growLeafLeft 2s ease-out 1s forwards;
+            opacity: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Daun kanan */
+        .leaf-right {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            border-radius: 50% 50% 50% 0;
+            bottom: 100px;
+            right: -50px;
+            transform: rotate(30deg) scale(0);
+            animation: growLeafRight 2s ease-out 1.2s forwards;
+            opacity: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Kelopak bunga */
+        .petal {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E, #FFB6C1);
+            border-radius: 50% 50% 50% 0;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg) scale(0);
+            animation: bloomPetal 1.8s ease-out 1.5s forwards;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+            z-index: 10;
+        }
+
+        .petal:nth-child(2) { 
+            transform: translateX(-50%) rotate(72deg) scale(0); 
+            animation-delay: 1.6s; 
+            background: linear-gradient(135deg, #FF8E8E, #FFB6C1, #FFC0CB);
+        }
+
+        .petal:nth-child(3) { 
+            transform: translateX(-50%) rotate(144deg) scale(0); 
+            animation-delay: 1.7s; 
+            background: linear-gradient(135deg, #FFB6C1, #FFC0CB, #FFE4E1);
+        }
+
+        .petal:nth-child(4) { 
+            transform: translateX(-50%) rotate(216deg) scale(0); 
+            animation-delay: 1.8s; 
+            background: linear-gradient(135deg, #FFC0CB, #FFE4E1, #FFF0F5);
+        }
+
+        .petal:nth-child(5) { 
+            transform: translateX(-50%) rotate(288deg) scale(0); 
+            animation-delay: 1.9s; 
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E, #FFB6C1);
+        }
+
+        /* Pusat bunga */
+        .center {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            bottom: 270px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            animation: bloomCenter 1.5s ease-out 2s forwards;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            z-index: 15;
+        }
+
+        .center::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #FFF8DC;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(255, 255, 220, 0.8);
+        }
+
+        /* Benang sari */
+        .stamen {
+            position: absolute;
+            width: 3px;
+            height: 15px;
+            background: #FFFACD;
+            bottom: 290px;
+            left: 50%;
+            transform-origin: bottom;
+            animation: bloomStamen 1.5s ease-out 2.2s forwards;
+            opacity: 0;
+        }
+
+        .stamen:nth-child(1) { transform: translateX(-20px) rotate(-30deg); animation-delay: 2.2s; }
+        .stamen:nth-child(2) { transform: translateX(-10px) rotate(-15deg); animation-delay: 2.3s; }
+        .stamen:nth-child(3) { transform: translateX(0); animation-delay: 2.4s; }
+        .stamen:nth-child(4) { transform: translateX(10px) rotate(15deg); animation-delay: 2.5s; }
+        .stamen:nth-child(5) { transform: translateX(20px) rotate(30deg); animation-delay: 2.6s; }
+
+        .stamen::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #FFD700;
+            border-radius: 50%;
+            top: -3px;
+            left: -1.5px;
+        }
+
+        /* Teks "SELAMAT PAGII ULANNN" */
+        .greeting {
+            font-size: 4.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 
+                4px 4px 8px rgba(0, 0, 0, 0.4),
+                -4px -4px 8px rgba(0, 0, 0, 0.4),
+                4px -4px 8px rgba(0, 0, 0, 0.4),
+                -4px 4px 8px rgba(0, 0, 0, 0.4);
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInText 1.8s ease-out 2.5s forwards;
+            background: linear-gradient(to right, 
+                #FFD700, 
+                #FF6B6B, 
+                #4ECDC4, 
+                #FFA500, 
+                #FF69B4, 
+                #87CEEB, 
+                #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: textGradient 4s linear infinite, fadeInText 1.8s ease-out 2.5s forwards;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 20;
+        }
+
+        .greeting::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: linear-gradient(45deg, 
+                rgba(255, 255, 255, 0.2),
+                rgba(255, 215, 0, 0.1),
+                rgba(255, 105, 180, 0.1),
+                rgba(255, 255, 255, 0.2));
+            border-radius: 20px;
+            filter: blur(10px);
+            z-index: -1;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        /* Partikel sparkle */
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatParticle 5s ease-in-out infinite;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Audio Player */
+        .audio-player {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 30;
+            animation: slideUp 1s ease-out 0.5s forwards;
+            opacity: 0;
+            transform: translateX(-50%) translateY(30px);
+        }
+
+        .audio-player.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .audio-icon {
+            font-size: 2rem;
+            color: #FF6B6B;
+            animation: pulse 2s infinite;
+        }
+
+        .audio-info {
+            text-align: left;
+        }
+
+        .audio-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2E7D32;
+            margin-bottom: 3px;
+        }
+
+        .audio-artist {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        audio {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+
+        /* Keyframes Animasi */
+        @keyframes growStem {
+            from {
+                height: 0;
+                opacity: 0;
+            }
+            to {
+                height: 250px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes growLeafLeft {
+            from {
+                opacity: 0;
+                transform: rotate(-30deg) scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(-30deg) scale(1);
+            }
+        }
+
+        @keyframes growLeafRight {
+            from {
+                opacity: 0;
+                transform: rotate(30deg) scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(30deg) scale(1);
+            }
+        }
+
+        @keyframes bloomPetal {
+            from {
+                transform: translateX(-50%) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bloomCenter {
+            from {
+                transform: translateX(-50%) scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bloomStamen {
+            from {
+                opacity: 0;
+                transform: translateX(0) rotate(0deg) scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg) scale(1);
+            }
+        }
+
+        @keyframes bloom {
+            from {
+                transform: scale(0.5) rotate(-10deg);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-80px) translateX(15px);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            }
+            to {
+                box-shadow: 0 0 40px rgba(255, 105, 180, 0.5);
+            }
+        }
+
+        @keyframes sunGlow {
+            from {
+                box-shadow: 0 0 50px 20px rgba(255, 215, 0, 0.6);
+            }
+            to {
+                box-shadow: 0 0 80px 30px rgba(255, 255, 200, 0.8);
+            }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .greeting {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .petal {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .stem {
+                width: 10px;
+            }
+            
+            .center {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .audio-player {
+                flex-direction: column;
+                padding: 15px 25px;
+            }
+            
+            .audio-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .greeting {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            
+            .flower {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="sun"></div>
+    </div>
+
+    <div class="container">
+        <div class="flower">
+            <div class="stem"></div>
+            <div class="leaf-left"></div>
+            <div class="leaf-right"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="center"></div>
+            <div class="stamen"></div>
+            <div class="stamen"></div>
+            <div class="stamen"></div>
+            <div class="stamen"></div>
+            <div class="stamen"></div>
+        </div>
+        <div class="greeting">SELAMAT PAGII ULANNN</div>
+    </div>
+
+    <!-- Audio Player -->
+    <div class="audio-player" id="audioPlayer">
+        <div class="audio-icon">🎵</div>
+        <div class="audio-info">
+            <div class="audio-title">Kemesraan</div>
+            <div class="audio-artist">Iis Sugianto & Broery Marantika</div>
+        </div>
+    </div>
+
+    <!-- Audio Element (hidden) -->
+    <audio id="kemesraanAudio" controls loop>
+        <source src="kemesraan.mp3" type="audio/mpeg">
+        <source src="kemesraan.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Membuat partikel sparkle
+        function createParticles() {
+            const container = document.querySelector('.container');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Posisi acak di sekitar bunga
+                const posX = Math.random() * 600 - 300;
+                const posY = Math.random() * 300 + 50;
+                const size = Math.random() * 6 + 4;
+                
+                particle.style.left = `calc(50% + ${posX}px)`;
+                particle.style.top = `${posY}px`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Delay animasi acak
+                const delay = Math.random() * 5;
+                particle.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Efek hover pada bunga
+        document.querySelector('.flower').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.08) rotate(3deg)';
+            this.style.transition = 'transform 0.4s ease';
+        });
+
+        document.querySelector('.flower').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+
+        // Kontrol audio
+        const audio = document.getElementById('kemesraanAudio');
+        const audioPlayer = document.getElementById('audioPlayer');
+        
+        // Tampilkan player setelah 2 detik
+        setTimeout(() => {
+            audioPlayer.classList.add('show');
+        }, 2000);
+
+        // Klik player untuk kontrol audio
+        audioPlayer.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (audio.paused) {
+                audio.play().then(() => {
+                    audioPlayer.style.backgroundColor = 'rgba(144, 238, 144, 0.95)';
+                    audioPlayer.querySelector('.audio-icon').textContent = '⏸️';
+                    audioPlayer.querySelector('.audio-title').textContent = 'Kemesraan - Playing';
+                }).catch(error => {
+                    console.error('Error playing audio:', error);
+                    alert('⚠️ Tidak dapat memutar lagu. Pastikan file "kemesraan.mp3" ada di folder yang sama.');
+                });
+            } else {
+                audio.pause();
+                audioPlayer.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                audioPlayer.querySelector('.audio-icon').textContent = '🎵';
+                audioPlayer.querySelector('.audio-title').textContent = 'Kemesraan';
+            }
+        });
+
+        // Auto-play saat halaman dimuat (dengan interaksi user terlebih dahulu)
+        document.addEventListener('click', function initAudio() {
+            // Hapus event listener setelah pertama kali
+            document.removeEventListener('click', initAudio);
+            
+            // Coba play audio (bisa gagal jika browser block auto-play)
+            audio.play().catch(error => {
+                console.log('Auto-play blocked by browser - user interaction required');
+            });
+        }, { once: true });
+
+        // Deteksi ketika audio selesai loading
+        audio.addEventListener('canplaythrough', function() {
+            console.log('🎵 Lagu "Kemesraan" siap diputar!');
+        });
+
+        audio.addEventListener('error', function() {
+            console.error('❌ Gagal memuat lagu "Kemesraan"');
+            audioPlayer.style.backgroundColor = 'rgba(255, 100, 100, 0.95)';
+            audioPlayer.querySelector('.audio-title').textContent = 'Lagu Tidak Ditemukan';
+            audioPlayer.querySelector('.audio-artist').textContent = 'Letakkan file kemesraan.mp3 di folder yang sama';
+        });
+
+        // Inisialisasi partikel saat halaman dimuat
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+</html>
